@@ -1,0 +1,14 @@
+{
+  "name": "enc_dec",
+  "version": "1.0.0",
+  "description": "encrytion and description of password or messgage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shubham",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
