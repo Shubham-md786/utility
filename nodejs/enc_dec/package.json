@@ -1,14 +1,22 @@
 {
   "name": "enc_dec",
   "version": "1.0.0",
-  "description": "encrytion and description of password or messgage",
+  "description": "encryption and decription of message and password",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "enc": "./bin/enc.js",
+    "dec": "./bin/dec.js"
   },
   "author": "shubham",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "chalk": "^2.4.1",
+    "crypto": "^1.0.1",
+    "encryption-se": "^1.0.3",
+    "yargs": "^17.3.1"
   }
 }
