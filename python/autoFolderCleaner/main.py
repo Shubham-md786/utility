@@ -78,7 +78,7 @@ if __name__ == "__main__":
     move("Docs", docs)
     move("Media", medias)
     move("Audio", audio)
-    move("compressed-File", compressed)
+    move("Compressed-File", compressed)
     move("Disc", disc)
     move("E-mail", email)
     move("Executable",executable)
