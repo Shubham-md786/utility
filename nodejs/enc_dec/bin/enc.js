@@ -6,10 +6,10 @@ const chalk = require("chalk");
 let text = yargs.argv._.join(' ');
 let params = yargs.argv;
 
-if(!text) return console.log(chalk.red.bold('No text provided for encryption'))
+if(!text) return console.log(chalk.red.bold('\nNo text provided for encryption\n'))
 
 if(!params.p){
-   return console.log(chalk.red.bold('please provide password'));
+   return console.log(chalk.red.bold('\nplease provide password\n'));
 }
 if(!params.s){
    params.s = 'En-crypt'
@@ -22,13 +22,13 @@ const options = {
 const encryption = require('encryption-se')(options);
 encryption.encrypt(`${text}`).then(enc => {
 	// 'enc' contains encrypted string in base64 format
-       console.log (chalk.blue(`Message ==> ${text}`))
-       console.log(chalk.green(`Encoded-text ==> ${enc}`))
-       console.log(chalk.yellow(`Password ==> ${params.p}`))
-       console.log(chalk.white.bold(`Salt ==> ${params.s}`))
+       console.log (chalk.blue(`\nMessage ==> ${text}`))
+       console.log(chalk.green(`\nEncoded-text ==> ${enc}`))
+       console.log(chalk.yellow(`\nPassword ==> ${params.p}`))
+       console.log(chalk.white.bold(`\nSalt ==> ${params.s}\n`))
        //console.log(chalk.white.bold(`Algorithm ==> `))
 
 }).catch((err) => {
 	// This is to handle errors
-	console.log(chalk.red.bold('Something went wrong'))
+	console.log(chalk.red.bold('\nSomething went wrong\n'))
 })
