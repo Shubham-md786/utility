@@ -10,7 +10,8 @@
   "bin": {
     "enc": "./bin/enc.js",
     "dec": "./bin/dec.js",
-    "encFile": "/bin/encFile.js"
+    "encFile": "/bin/encFile.js",
+    "decFile":"/bin/decFile.js"
   },
   "author": "shubham",
   "license": "ISC",
