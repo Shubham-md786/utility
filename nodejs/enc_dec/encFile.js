@@ -1,14 +1,18 @@
 #! /usr/bin/env node
 
+//core module
 const fs = require('fs');
-const chalk = require('chalk');
 const path = require('path');
+//npm module
+const chalk = require('chalk');
+const yargs = require("yargs");
 
-const readline = require('readline').createInterface({
-	input: process.stdin,
-	output: process.stdout
-});
-readline.question('Enter file path name => ', name => {
+const inputFile = yargs.argv._
+
+if(!inputFile) return console.log(chalk.red.bold('No file provided for encryption'))
+
+inputFile.forEach(name =>{
+
 	try {
 		let fileName = (path.basename(name));
 		let fileCreate = fileName.split(".")[0];
@@ -21,9 +25,10 @@ readline.question('Enter file path name => ', name => {
 		var base64str = base64_encode(name);
 		fs.writeFileSync(`${fileCreate}.txt`, base64str);
 		console.log(chalk.green.bold(`\nFile has been created => ${fileCreate}.txt\n`))
-		readline.close();
+		
 	} catch(err) {
-		console.log(chalk.red.bold("\nFile not found\n"));
-		readline.close();
+
+		console.log(chalk.red.bold(`\nFile not found => ${name}\n`));
+		
 	}
-});
+})
