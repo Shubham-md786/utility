@@ -14,6 +14,8 @@ const inputFile = yargs.argv._;
 
 if(!inputFile) return console.log(chalk.red.bold('No file provided for decryption'));
 
+if(params.z === true && params.r === true) return console.log(chalk.red.bold('\nCannot use both zip and remove enc file at a same time\n'));
+
 if(params.z){fs.mkdirSync('dec_file');}
 
 inputFile.forEach(name =>{
@@ -25,7 +27,12 @@ inputFile.forEach(name =>{
 		fs.writeFileSync(arr[0], decode);
 		if(params.z){
 			fs.rename(`./${arr[0]}`,`./dec_file/${arr[0]}`,(err)=>{if(err) console.log(chalk.red.bold(`\nCannot zip\n`))});
-		}else{
+		}else if(params.r){
+			fs.unlink(`${name}`,(err)=>{if(err) console.log(chalk.red.bold(`\nCannot Delete\n`))})
+			console.log(chalk.green.bold(`\nFile created suceesfully => ${arr[0]}\n`));
+			console.log(chalk.yellow.bold(`\nDeleted ${name}\n`));
+		}
+		else{
 		console.log(chalk.green.bold(`\nFile created suceesfully => ${arr[0]}\n`));
 		}
 
@@ -43,7 +50,7 @@ if(params.z){
       zip.addLocalFolder("./dec_file");
       zip.writeZip(outputFile);
       console.log(chalk.green.bold(`\nCreated ${outputFile} successfully\n`));                                } catch (e) {
-        console.log(`Something went wrong. ${e}`);
+        console.log(`Something went wrong.`);
       }
    }
    createZipArchive();
