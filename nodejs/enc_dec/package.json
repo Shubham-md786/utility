@@ -11,11 +11,12 @@
     "enc": "./bin/enc.js",
     "dec": "./bin/dec.js",
     "encFile": "/bin/encFile.js",
-    "decFile":"/bin/decFile.js"
+    "decFile": "/bin/decFile.js"
   },
   "author": "shubham",
   "license": "ISC",
   "dependencies": {
+    "adm-zip": "^0.5.9",
     "chalk": "^2.4.1",
     "crypto": "^1.0.1",
     "encryption-se": "^1.0.3",
