@@ -19,7 +19,7 @@ inputFile.forEach(name =>{
 
 	try {
 		let fileName = (path.basename(name));
-		let fileCreate = fileName.split(".")[0];
+		let fileCreate = fileName.substring(0, fileName.lastIndexOf(".") );
 
 		function base64_encode(file) {
 			var bitmap = fs.readFileSync(file);
